@@ -54,9 +54,8 @@ The current increase in demand for both computational skills in biology and repr
 + [Download & Installation] (http://git-scm.com/download/linux)
 
 
-## Setup remote access (for pushing local content to github)
-+ [general] http://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration
-+ [generate ssh keys] https://help.github.com/articles/generating-ssh-keys/
+## Setup remote ssh access
++ [generate ssh keys] (https://help.github.com/articles/generating-ssh-keys/)
 
 # Resources
 ## Version-control and git
