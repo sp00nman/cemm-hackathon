@@ -4,18 +4,8 @@ cemm-hackathon
 A repository to collect ideas, code &amp; figures developed during CeMM hackathons.
 
 
-##### Getting started
+# Repository organization
 
-+ [15 minute git tutorial] (https://try.github.io)
-+ [Official git documentation] (http://git-scm.com/doc)
+I propose we organize the repository with individual directories for each hackaton: `hackatons/<date>`, where `<date>` is in the format `YYYY-MM-DD`.
 
-##### Git for mac
-+ [Download & Installation] (http://git-scm.com/download/mac)
-+ [Graphical user interface] (https://mac.github.com/)
-
-##### Git for Windows
-+ [Download & Installation] (http://git-scm.com/download/win)
-+ [Graphical user interface] (https://windows.github.com/)
-
-##### Git for Linux
-+ [Download & Installation] (http://git-scm.com/download/linux)
+Common things to all hackatons can still have folders in the root of the repository.
