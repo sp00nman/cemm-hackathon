@@ -24,6 +24,10 @@ The current increase in demand for both computational skills in biology and repr
 
 
 # Prepare beforehand
+
+## Register to [github](https://github.com)
++ [github setup & configuration tutorial](http://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration)
+
 ## Get a text editor
 ##### General-purpose, cross-platform editors
 + [Atom](https://atom.io/)
@@ -38,7 +42,7 @@ The current increase in demand for both computational skills in biology and repr
 + [Emacs](https://www.gnu.org/software/emacs/)
 
 ## Install git
-##### Git for mac
+##### Git for Mac
 + [Download & Installation] (http://git-scm.com/download/mac)
 + [Graphical user interface] (https://mac.github.com/)
 
@@ -50,6 +54,9 @@ The current increase in demand for both computational skills in biology and repr
 + [Download & Installation] (http://git-scm.com/download/linux)
 
 
+## Setup remote ssh access
++ [generate ssh keys] (https://help.github.com/articles/generating-ssh-keys/)
+
 # Resources
 ## Version-control and git
 + [15 minute git tutorial] (https://try.github.io)
@@ -57,6 +64,7 @@ The current increase in demand for both computational skills in biology and repr
 + [git - the simple guide](http://rogerdudler.github.io/git-guide/)
 + [Why version control](http://gitolite.com/vc.html)
 + [Intro to version control](https://www.youtube.com/watch?v=gY2JwRfin1M)
++ [git cheat sheet](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
 
 ## Markdown
 + [Markdown tutorial](https://guides.github.com/features/mastering-markdown/)
