@@ -42,9 +42,9 @@ Depending on the number and experience of the attendees we can have several acti
 
 
 **Note**:
-+ The tutorials would be a one-page markdown document that become part of the tutorials wiki.
-+ **The goal** is not to have a very detailed and polished document, but **to experiment with git** in the process, it can be finished later.
-+ For many things it could be simply a gathering of existing resources, rather than rewriting stuff, so people that already have this could simply make a markdown document with it.
++ The tutorials would be a one-page markdown document that becomes part of the tutorials wiki.
++ **The goal** is not to have a very detailed and polished document, but **to experiment with git** in the process. It can be finished later.
++ For many things it could be simply a gathering of existing resources, rather than rewriting stuff, or a prototypical example of a task so people that already have this could simply make a markdown document with it.
 
 
 # Prepare beforehand
