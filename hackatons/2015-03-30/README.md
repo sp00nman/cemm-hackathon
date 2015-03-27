@@ -15,12 +15,36 @@ The current increase in demand for both computational skills in biology and repr
 # Tentative program
 1. Introduction to version control and git
 2. Introduction to Markdown
-3. Overview of Github's features (issues, wiki, Github pages, organizations)
-4. Playing with git and Github (30 min)
+3. Overview of Github's features (issues, wiki, Github pages, organizations, gists)
+4. Playing with git and Github (30 min hands-on)
 5. Git and Markdown for collaborative research (workflow)
 6. Using git CeMM-wide
     + Proposal
     + Discussion
+
+### Hands-on
+#### Setup
+Depending on the experience of the attendees these steps might need to be done initially:
+
+1. Set up git
+2. Create Github account + add keys
+3. Join CeMM team
+4. Get a text editor
+
+#### Experimenting
+Depending on the number and experience of the attendees we can have several activities (individual or in groups):
++ Contribute to a tutorial (`cemm-vienna/tutorials`) on:
+    + "introduction to programming" (*e.g.* unix commands tips, project organization, bioinformatics file types)
+    + bioinformatic workflows (*e.g.* practical principles of read alignment, variant calling, transcriptome assembly, epigenome data processing)
+    + basic plotting tutorial (*e.g.* R introduction, ggplot, matplotlib)
++ Converting a own-existing project into a repository and upload it to Github (personal/private accounts for now)
++ ...
+
+
+**Note**:
++ The tutorials would be a one-page markdown document that become part of the tutorials wiki.
++ **The goal** is not to have a very detailed and polished document, but **to experiment with git** in the process, it can be finished later.
++ For many things it could be simply a gathering of existing resources, rather than rewriting stuff, so people that already have this could simply make a markdown document with it.
 
 
 # Prepare beforehand
@@ -59,11 +83,12 @@ The current increase in demand for both computational skills in biology and repr
 
 # Resources
 ## Version-control and git
-+ [15 minute git tutorial] (https://try.github.io)
-+ [Official git documentation] (http://git-scm.com/doc)
-+ [git - the simple guide](http://rogerdudler.github.io/git-guide/)
 + [Why version control](http://gitolite.com/vc.html)
 + [Intro to version control](https://www.youtube.com/watch?v=gY2JwRfin1M)
++ [15 minute git tutorial] (https://try.github.io)
++ [More comprehensive git tutorials](https://www.atlassian.com/git/tutorials)
++ [Official git documentation] (http://git-scm.com/doc)
++ [git - the simple guide](http://rogerdudler.github.io/git-guide/)
 + [git cheat sheet](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
 
 ## Markdown
