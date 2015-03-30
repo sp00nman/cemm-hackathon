@@ -1,0 +1,283 @@
+\documentclass[a4paper,11pt]{TKnotes}
+
+\usepackage{TKLPack1}
+\usepackage{caption}
+
+\newcommand{\bmini}[1]{{\begin{minipage}}{#1}}
+\newcommand{\emini}{{\end{minipage}}}
+        \fancyfoot{}
+\fancyfoot[L]{\textcolor{white}{Hackathon Social Group, CeMM}}            
+
+\newcommand{\tbs}{\textbackslash}
+
+\newcommand{\background}{\vspace*{0.3cm}\noindent\uline{Background:} }
+\newcommand{\status}{\vspace*{0.3cm}\noindent\uline{Status:} }
+\newcommand{\nextsteps}{\vspace*{0.3cm}\noindent\uline{Next steps:} }
+
+
+\begin{document}
+\normalem
+
+\title{{\tt [Summary]}\\ Hackathon at CeMM - 24 April 2014 }
+\author{Social Hackathon Group}
+\affiliation{Research Center for Molecular Medicine of the Austrian Academy of Sciences (CeMM), Vienna, Austria}
+\date{}
+\abstract{The first hackathon at CeMM took place on April 24th, 2014. The theme was personal genomics and analysis of one individual whole genome sequencing dataset. Twelve (12) students, postdocs, and faculty participated in the event.}
+\maketitle
+
+\tableofcontents
+
+\clearpage
+\section{Introduction}
+
+A hackathon is meant to synchronize a group of people and encourage joint work on a single topic or theme. In industry such events are used to kickstart development on a new project or to gather new ideas; the goal is typically to produce a working example or prototype of an application or algorithm. The hackathon at CeMM was meant to borrow some of these concepts and apply them in a science-centered setting. 
+
+
+
+\section{Theme}
+
+The theme for the event was personal genomics and the analysis of whole-genome sequencing data from a `normal' individual. The topic is anchored into current trends in science and society: sequencing is becoming increasingly accessible and mainstream, so it is interesting to ask what we can learn from analysis of a single genome. 
+
+In the literature and in industry, much effort has already been expended on analysis of genomes and variants. One example is the service provided by {\tt 23andMe.com} over the last several years. The objective of the hackathon, however, was to attempt analysis of data produced in-house.
+
+
+
+\clearpage
+\section{Results}
+
+We started with a joint brainstorming and discussion sesssion. Then, we had an introduction to the available personal genome data provided by the BSF. The data was stored under {\tt /fhgfs/scratch/hackathon} on the compute cluster and consisted of:
+\begin{itemize}
+ \item[] one alignment file ({\tt bam}) - bwa, approximately 12x coverage.
+ \item[] one variant call file ({\tt vcf}) - GATK, approximately 4.1M lines.
+\end{itemize}
+After the introduction to the data, we split up into smaller groups and tried to tackle the genome analysis problem from different angles. Throughout the event, we had spontaneous exchanges between the smaller groups.
+
+\vspace*{0.5cm}
+\noindent{\em [Note: The text does not cite tools and sources properly. Consider for internal purposes only.]}
+
+
+
+
+\vspace*{0.5cm}
+\subsection{Global variant statistics}
+%Doris, Angelo, Michael
+
+\background Variant call files for whole genome sequencing can contain millions of identified items.
+
+\status We ran the variant call file through annotation programs Annovar and snpEff and looked through the summary tables, stratifying variants by chromosomes, substitution type, genomic region, etc.
+
+\nextsteps Repeat the analysis on sets of variants obtained from a merge of multiple replicates (multiple replicates are available, although were not merged at time of hackathon). 
+
+
+
+\vspace*{0.5cm}
+\subsection{Prioritization of variants}
+%Andreas, Doris, Alexey
+
+\background Most variants in a genome are polymorphism that have no known or expected phenotype. A challenge in annotation is to identify the handful of variants that may be interesting from a medical viewpoint.
+
+\status We created short lists of interesting variants based on output from Annovar, polyPhen, and intersecting with database ClinVar. For example, we produced a list of variants with STOP codons in protein coding genes and inspected some of these variants in {\tt IGV.}
+
+\nextsteps Carry out more rigorous variant filtering. Study other variant classes. Rank by variant quality score,  conservation score, or predicted effect.
+
+
+
+
+\vspace*{0.5cm}
+\subsection{Quality control}
+%Andreas, Tomasz
+
+\background A challenge in genome annotation is to distinguish true genetic variation from technical artifacts introduced in the sequencing chemistry (library prep) or informatics (e.g. alignment). 
+
+\status Starting from the provided alignment, we produced an alternative set of variant calls with independent software. We compared calls of single nucleotide substitutions (3.5M common calls, 100k-300k calls unique to each method).
+
+\nextsteps Compare indel calls. Compare with higher-coverage merged samples.
+
+
+
+
+\vspace*{0.5cm}
+\subsection{Pharmacogenomics}
+%Andreas, Doris, Alexey
+
+\background Although some variants (e.g. STOP codons) can be predicted to be phenotypically interesting, the effect of many others is difficult to judge. Pharmacogenomics connects a distinct genetic makeup to an individual’s response to drugs by correlating genetic variants to a drug’s efficacy or toxicity, ultimately optimizing drug treatment towards personalized medicine.
+
+\status We intersected a “core list” of genetic biomarkers from the PharmaADME initiative with variants identified in our whole-genome sequencing data. Beside relatively frequent variants, we identified variants in ABC, CYP, SLC and SULT proteins that only have global allele frequencies of 10-20\%.
+
+\nextsteps Gather more information on how the identified variants modulate pharmacodynamics and pharmacokinetics. Assemble a list of compounds whose action and/or metabolism is improved/impaired by the identified variants.
+
+
+
+
+\vspace*{0.5cm}
+\subsection{Protein interactions}
+%Doris, Alexey
+
+\background Some variants translate into changes in protein sequence and structure, and this can have an impact on interaction with other proteins that results in phenotypic changes.
+
+\status We have intersected variants annotation with public protein interactions databases and identified interactions, where both partners contain variants classified as ‘probably damaging’ by PolyPhen. Such interactions have increased probability to be disrupted.
+
+\nextsteps Follow up on hits and interactors from the databases. Consider position of variant within protein (surface, interaction site, binding motifs, phosphorylation sites etc) and the type of protein-protein interaction (physical association in a complex, direct binding) to rank affected interactions. Integrate with network analysis methods to estimate the impact of disrupting interaction on the cellular system.
+
+
+
+
+\vspace*{0.5cm}
+\subsection{Analysis of ancestry}
+%Adrian, Fiorella
+
+\background Some genetic variants are common in one population but not in another, and this can be used to calculate the ancestry of a sample and in some cases even to identify a donor personally. 
+
+\status We downloaded variant information on 12 different population from the 1000 Genomes project. First, we attempted PCA on variants from one chromosome. Then, we used exonic variants and produced multi-dimensional-scaling diagram using PLINK (Fig \ref{ancestry}). 
+
+\nextsteps Repeat the analysis using a newer release of the 1000 Genomes project, which contains more individuals and more population groups.
+
+\begin{figure}[!htb] 
+\vspace*{0.2cm}
+  \begin{center}
+\includegraphics[scale=0.5]{ancestry_MDS.pdf} \vspace*{0.4cm} 
+\vspace*{-1cm}
+  \end{center}
+  \caption{\label{ancestry}{\bf Ancestry clustering. } Multi-dimensional scaling plot produced using PLINK. Personal genome PGA1 (black triangle) clusters with samples of European descent. }
+\end{figure}
+
+\vspace*{0.5cm}
+\subsection{Structural variants}
+%Doris
+
+\background Structural variants are changes in a genome that comprise large regions, e.g. copy number of transposons. Such variants can be detected via analysis of coverage or via search of abnormally mapping mate pairs.
+
+\status This type of analysis requires higher coverage than 10x in the available {\tt bam} file. 
+
+\nextsteps Revisited this idea after merging multiple replicates together (data available from the BSF, but not merged at the time of event)
+
+
+
+\vspace*{0.5cm}
+\subsection{Telomeres}
+%Alexandra
+
+\background Telomores are sequences on the ends of chromosome; their length is known to diminish with age. It is thus conceivable to determine the age of a genome through analysis of coverage on telomeric regions. 
+
+\status We found software in the litererature presenting a classifier of age based on telomere length ({\tt github.com/zd1/telseq}). Attempted to install the software, but many dependencies were missing. 
+
+\nextsteps Run the program on the bam file and estimate age of individual.
+
+
+
+\vspace*{0.5cm}
+\subsection{Visualization}
+%Tomasz, Johanna
+
+\background Visualization is an important tool for exploring large datasets as well as communicating results. Recently, several frameworks have been developed to enable creation of dynamic and interactive figures.
+
+\status We looked at examples of visualizations produced using {\tt D3.js} and selected one example that could be useful for portraying genomic data ({\tt github.com/vogievetsky/KoalasToTheMax}). We managed to run it locally but not to modify it in substantial ways. 
+
+\nextsteps Learn more about the {\tt D3.js} framework. Build simple examples from the ground up.
+
+
+
+\vspace*{0.5cm}
+\subsection{23andMe}
+%Christoph
+
+\background Genome analysis is now a service offered by several companies. Data from our donor was also previously analyzed by {\tt 23andMe}. 
+
+\status During a break toward the end of the evening, we had a look altogether at results produced by {\tt 23andMe}. One variant in gene HBB caught our attention (SNP rs11549407 linked with beta thalessemia), but when we first looked for it in the sequencing data, we did not immediately see it. However, upon manual inspection, a variant at the same locus was labelled with a different id (rs76728603) (Fig. \ref{HBB})
+
+\nextsteps Think about synonyms in databases and how they affect our understanding of the genome. Study the professional website and gather ideas/inspiration for future work.
+
+\begin{figure}[!htb] 
+\vspace*{0.2cm}
+  \begin{center}
+\includegraphics[scale=0.32]{HBB_snp.png} \vspace*{0.4cm} 
+\vspace*{-1cm}
+  \end{center}
+  \caption{\label{HBB}{\bf Heterozygous variant in gene HBB (chr11). } Substitution variant in gene HBB is visible in alignment and was (marginally) detected by variant calling software. However, dbSNP ids associated to the variant by {\tt 23andMe} and our pipelines were not verbatim identical. }
+\end{figure}
+
+
+
+\clearpage
+\section{Discussion}
+
+We attempted analysis of one personal genome, ``PGA1,'' sequenced by the BSF. Along the way we looked at the genome from multiple different angles. 
+
+Understandly, in the short timeframe, concrete results arose primarily from efforts using familiar and established tools - for example we categorized variants by their predicted phenotype and studied a few individual cases. These are case studies for how personal genome sequencing can give insight into health.
+
+Some efforts identified a number of new directions that have not been attempted/established at CeMM so far - for example study of telomere length or presentation of data interactively. These efforts raise awareness of developments in the field and could be followed up on.
+
+Commendably, some efforts began during the hackathon and were completed in later days - for example analysis of ancestry.
+
+
+
+\section{Participants}
+
+In alphabetical order:
+
+\begin{itemize}
+\vspace*{-0.22cm}\item[] Christoph Bock
+\vspace*{-0.22cm}\item[] Doris Chen
+\vspace*{-0.22cm}\item[] Katrin Hoermann
+\vspace*{-0.22cm}\item[] Johanna Klughammer
+\vspace*{-0.22cm}\item[] Tomasz Konopka
+\vspace*{-0.22cm}\item[] Alexandra Kornienko
+\vspace*{-0.22cm}\item[] Angelo Nuzzo
+\vspace*{-0.22cm}\item[] Adrian Cesar Razquin
+\vspace*{-0.22cm}\item[] Fiorella Schischlik
+\vspace*{-0.22cm}\item[] Andreas Schoenegger
+\vspace*{-0.22cm}\item[] Michael Schuster
+\vspace*{-0.22cm}\item[] Alexey Stukalov
+\end{itemize}
+Others expressed interest in the event/topic but could not attend on this occasion.
+
+\section{Acknowledgements}
+
+Thanks to Christoph for suggesting the topic; Mischa, Joachim and IT for help with the setup on the cluster; Angelo and BSF for the introduction to the data. Special thanks also to Giulio for donating sample ``PGA1''.
+
+
+\clearpage
+\appendix
+\section{Supplement}
+
+Miscellaneous additional text and analysis details.
+
+\subsection{Data files}
+
+During the course of the event, we created multiple code and derived data files. All the information is stored under {\tt /fhgfs/scratch/hackathon}.
+
+\subsection{Variant Filtering}
+
+{\tt [Contribution]}
+
+\vspace*{0.4cm}
+
+\noindent After it turned out that the provided bam file did not provide the proper coverage for CNV analysis, I decided to work on in-depth annotation of the vcf file (which is anyway something I am interested at the moment). For that purpose I installed an updated version of Annovar and related databases (e.g. ClinVar) and ran annotation by the table\_annovar.pl script from Annovar (after conversion into Annovar format); command:
+
+\begin{verbatim}
+/fhgfs/groups/lab_kralovics/Doris/bin/perl_tools/annovar/table_annovar.pl 
+  analysis_ready_vcf.annovar
+
+/fhgfs/prod/ngs_resources/genomes/hg19/forAnnovar -buildver hg19 
+  -out analysis_ready_vcf -remove -protocol 
+  refGene,phastConsElements46way,genomicSuperDups,esp6500si_all,
+  1000g2012apr_all,snp137,ljb2_all,cosmic64,clinvar_20140211 
+  -operation g,r,r,f,f,f,f,f,f -nastring NA -csvout 2>&1 | 
+  tee tableAnnovar-9_140424.log )
+\end{verbatim}
+ 
+Since this results in a huge file, I extracted the ones which were flagged to be ``exonic'' or ``splicing'' variants, in total around 21k (/fhgfs/scratch/hackathon/variant\_annotation/annovar/annovar-201308\_not-filtered /analysis\_ready\_vcf\_hg19\_multianno\_exonic-splicing.csv). To further reduce the number of variants, one can additionally exclude synonymous and non-pathogenic (as annotated by ClinVar) ones and retain only those with ClinVar annotation, resulting in 122 variants (including one pointing to beta-thalassemia); s.a.
+\begin{verbatim}
+/fhgfs/scratch/hackathon/variant\_annotation/annovar/annovar-201308\_not-
+filtered/analysis\_ready\_vcf\_hg19\_multianno\_exonic-splicing\_CLNDBN\_
+woSyn-NonPatho.txt
+\end{verbatim}
+ 
+Two important things are missing: (1) Addition of quality information to the annotation tables (2) Filtering according (1).
+
+%\addcontentsline{toc}{section}{References}
+%\bibliographystyle{ieeetr}
+%\bibliography{thesRef}
+
+\end{document}
+
