@@ -10,7 +10,7 @@ Matthias
 I **agree**.
 *Doris*
 
-Hello Hackatoners! That was fun! I like to thank the **ORGANIZERS!** for putting this together yay!!
+Hello hello Hackatoners! That was fun! I like to thank the **ORGANIZERS!** for putting this together yay!!
 ***Rico***
 
 
