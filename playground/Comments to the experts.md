@@ -7,3 +7,8 @@ Matthias
 ##### PS
 I **agree**.
 *Doris*
+
+
+
+* Here's an image in a markdown document:*
+![Image](559989_10200439340776386_965919633_n.jpg)
