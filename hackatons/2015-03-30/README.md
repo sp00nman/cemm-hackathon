@@ -33,6 +33,7 @@ Depending on the experience of the attendees these steps might need to be done i
 
 #### Experimenting
 Depending on the number and experience of the attendees we can have several activities (individual or in groups):
++ 
 + Contribute to a tutorial (`cemm-vienna/tutorials`) on:
     + "introduction to programming" (*e.g.* unix commands tips, project organization, bioinformatics file types)
     + bioinformatic workflows (*e.g.* practical principles of read alignment, variant calling, transcriptome assembly, epigenome data processing)
@@ -76,6 +77,7 @@ Depending on the number and experience of the attendees we can have several acti
 
 ##### Git for Linux
 + [Download & Installation] (http://git-scm.com/download/linux)
++ [Graphical user interface] (http://git-scm.com/docs/gitk)
 
 
 ## Setup remote ssh access
@@ -90,6 +92,7 @@ Depending on the number and experience of the attendees we can have several acti
 + [Official git documentation] (http://git-scm.com/doc)
 + [git - the simple guide](http://rogerdudler.github.io/git-guide/)
 + [git cheat sheet](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
++ [nicer git cheat sheet](https://raw.githubusercontent.com/rogerdudler/git-guide/gh-pages/files/git_cheat_sheet.pdf)
 
 ## Markdown
 + [Markdown tutorial](https://guides.github.com/features/mastering-markdown/)
