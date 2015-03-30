@@ -1,10 +1,7 @@
 ---
-author:
-- Social Hackathon Group
-title: |
-    \
-    Hackathon at CeMM - 24 April 2014 
-...
+author: Tomasz Konopka & Social Hackathon Group
+title: Hackathon at CeMM - 24 April 2014 
+
 
 Introduction
 ============
@@ -150,7 +147,7 @@ which contains more individuals and more population groups.
 
 ![[ancestry]<span>**Ancestry clustering. **</span> Multi-dimensional
 scaling plot produced using PLINK. Personal genome PGA1 (black triangle)
-clusters with samples of European descent. ](ancestry_MDS.pdf)
+clusters with samples of European descent. ](https://github.com/cemm-vienna/cemm-hackathon/blob/master/hackathons/2014-04-24/pics/mds_PGA1.png)
 
 Structural variants
 -------------------
@@ -215,7 +212,7 @@ ideas/inspiration for future work.
 Substitution variant in gene HBB is visible in alignment and was
 (marginally) detected by variant calling software. However, dbSNP ids
 associated to the variant by <span>23andMe</span> and our pipelines were
-not verbatim identical. ](HBB_snp.png)
+not verbatim identical. ](https://github.com/cemm-vienna/cemm-hackathon/blob/master/hackathons/2014-04-24/pics/igv.png)
 
 Discussion
 ==========
